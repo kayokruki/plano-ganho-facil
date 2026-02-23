@@ -16,12 +16,12 @@ const HeroSection = () => {
               Direito à Saúde • HM Advocacia
             </p>
             <h1 className="font-heading text-3xl md:text-[40px] leading-tight text-foreground mb-6">
-              Garanta seu direito à cirurgia reparadora e tratamentos de alto custo{" "}
+              Seu direito à cirurgia reparadora e tratamentos de alto custo{" "}
               <span className="text-gradient-gold">sem negativas do plano de saúde</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Seu plano de saúde negou a cirurgia reparadora pós-bariátrica ou o tratamento com Mounjaro?
-              Você não precisa aceitar isso. Nós lutamos pelo seu direito.
+              Seu plano de saúde negou a cirurgia reparadora pós-bariátrica ou o tratamento com Mounjaro? Você não
+              precisa aceitar isso. Nós lutamos pelo seu direito.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
