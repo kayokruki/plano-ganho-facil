@@ -11,7 +11,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left - Text */}
-          <div className="order-2 md:order-1 animate-fade-in-up">
+          <div className="order-2 md:order-1 animate-fade-in-up text-center md:text-left">
             <p className="font-body text-sm uppercase tracking-[0.2em] text-accent mb-4">
               Direito à Saúde • HM Advocacia
             </p>
@@ -23,7 +23,7 @@ const HeroSection = () => {
               Seu plano de saúde negou a cirurgia reparadora pós-bariátrica ou o tratamento com Mounjaro? Você não
               precisa aceitar isso. Nós lutamos pelo seu direito.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start">
               <button
                 onClick={handleCTA}
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-body font-semibold text-base rounded-lg hover:bg-crimson/90 transition-colors"
