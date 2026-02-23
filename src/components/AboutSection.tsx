@@ -45,13 +45,13 @@ const AboutSection = () => {
               key={item.title}
               className="bg-card rounded-xl p-6 shadow-sm border border-border hover:shadow-lg hover:border-accent/40 transition-all group"
             >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors mx-auto sm:mx-0">
                 <item.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-body text-xl md:text-2xl font-semibold text-foreground mb-2">
+              <h3 className="font-body text-xl md:text-2xl font-semibold text-foreground mb-2 text-center sm:text-left">
                 {item.title}
               </h3>
-              <p className="font-body text-base text-muted-foreground leading-relaxed">
+              <p className="font-body text-base text-muted-foreground leading-relaxed text-center sm:text-left">
                 {item.description}
               </p>
             </div>
