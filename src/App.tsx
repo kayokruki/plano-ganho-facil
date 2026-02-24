@@ -18,7 +18,6 @@ const App = () => (
         <Routes>
           <Route path="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo" element={<Index />} />
           <Route path="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo/politica-de-privacidade" element={<PrivacyPolicy />} />
-          <Route path="/" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
