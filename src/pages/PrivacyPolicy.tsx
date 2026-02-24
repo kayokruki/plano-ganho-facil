@@ -4,7 +4,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-4 max-w-3xl">
-        <Link to="/" className="font-body text-sm text-accent hover:underline mb-8 inline-block">
+        <Link to="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo" className="font-body text-sm text-accent hover:underline mb-8 inline-block">
           ← Voltar ao início
         </Link>
         <h1 className="font-heading text-3xl md:text-[40px] text-foreground mb-8">

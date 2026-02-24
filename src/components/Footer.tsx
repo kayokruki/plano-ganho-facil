@@ -11,7 +11,7 @@ const Footer = () => {
             © {new Date().getFullYear()} HM Advocacia. Todos os direitos reservados.
           </p>
           <Link
-            to="/politica-de-privacidade"
+            to="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo/politica-de-privacidade"
             className="font-body text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
           >
             Política de Privacidade
