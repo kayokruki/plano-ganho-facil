@@ -27,9 +27,9 @@ const faqs = [
       "Sim. Se você precisa se afastar do trabalho para recuperação de cirurgia reparadora ou tratamento de saúde, pode ter direito ao auxílio-doença do INSS. Nossa equipe cuida de todo o processo.",
   },
   {
-    question: "Quanto custa a consulta inicial?",
+    question: "Como funciona o primeiro contato?",
     answer:
-      "A primeira análise do seu caso é gratuita. Entre em contato pelo WhatsApp e nossa equipe avaliará sua situação sem compromisso.",
+      "A primeira análise é feita pelo WhatsApp pela nossa equipe. Vendo que há viabilidade, encaminhamos para os próximos passos do atendimento.",
   },
 ];
 
