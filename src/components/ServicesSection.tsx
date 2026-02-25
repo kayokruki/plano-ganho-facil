@@ -11,7 +11,7 @@ const services = [
   {
     icon: Pill,
     title: "Medicamentos de Alto Custo",
-    subtitle: "Mounjaro • Ozempic",
+    subtitle: "FORNECIMENTO PELO PLANO",
     description:
       "Canetas emagrecedoras como Mounjaro e Ozempic são tratamentos essenciais para perda de peso ponderal. Garantimos seu acesso mesmo após negativa.",
   },
