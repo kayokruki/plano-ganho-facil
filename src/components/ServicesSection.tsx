@@ -16,13 +16,6 @@ const services = [
       "Canetas emagrecedoras como Mounjaro e Ozempic são tratamentos essenciais para perda de peso ponderal. Garantimos seu acesso mesmo após negativa.",
   },
   {
-    icon: AlertTriangle,
-    title: "Intercorrências em Internações",
-    subtitle: "Tratamento urgente",
-    description:
-      "Complicações durante internações exigem resposta imediata. Atuamos para garantir que seu plano cubra todo o tratamento necessário.",
-  },
-  {
     icon: HeartPulse,
     title: "Auxílio-Doença",
     subtitle: "Recuperação cirúrgica",
