@@ -12,7 +12,7 @@ const faqs = [
       "Não. A cirurgia reparadora pós-bariátrica é um direito garantido pela ANS quando há indicação médica. O excesso de pele após a perda de peso ponderal pode causar problemas físicos e psicológicos, e o plano é obrigado a cobrir o procedimento.",
   },
   {
-    question: "O plano é obrigado a fornecer Mounjaro ou Ozempic?",
+    question: "O plano é obrigado a cobrir cirurgias reparadoras mesmo que a perda de peso tenha sido com Mounjaro e Ozempic e não bariátrica?",
     answer:
       "Sim, quando há prescrição médica e o medicamento é essencial para o tratamento. Canetas emagrecedoras como Mounjaro e Ozempic são indicadas para obesidade e perda de peso ponderal. Em caso de negativa, podemos obter uma liminar judicial para garantir o fornecimento.",
   },
