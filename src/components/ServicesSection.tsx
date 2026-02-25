@@ -1,4 +1,4 @@
-import { Scissors, Pill, AlertTriangle, HeartPulse } from "lucide-react";
+import { Scissors, Pill, Scale, HeartPulse } from "lucide-react";
 
 const services = [
   {
@@ -21,6 +21,13 @@ const services = [
     subtitle: "Recuperação cirúrgica",
     description:
       "Precisa se afastar do trabalho para recuperação? Garantimos seus benefícios previdenciários durante todo o período necessário.",
+  },
+  {
+    icon: Scale,
+    title: "Ação Revisional de Reajuste",
+    subtitle: "Plano de saúde",
+    description:
+      "Combatemos reajustes abusivos que impedem o acesso ao plano de saúde.",
   },
 ];
 
