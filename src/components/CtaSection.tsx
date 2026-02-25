@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 
 const CtaSection = () => {
   return (
-    <section className="py-20 md:py-28 bg-accent">
+    <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 text-center">
         <h2 className="font-heading text-3xl md:text-[40px] text-primary mb-6">
           Não espere mais para garantir seu direito
