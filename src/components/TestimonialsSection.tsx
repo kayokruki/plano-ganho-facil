@@ -2,10 +2,10 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Samantha Ribeiro",
-    text: "Profissionais muito bem preparadas. Excelente atendimento, principalmente para quem busca advogada trabalhista/previdenciarista e orientações sobre INSS. Recomendo o escritório pela atenção, competência e cuidado com os clientes.",
+    name: "Ana Karolynne",
+    text: "Uma profissional excelente, sempre atenciosa, paciente e clara nas orientações. Sua dedicação fez toda a diferença, e estou plenamente satisfeita com a qualidade do seu trabalho.",
     rating: 5,
-    time: "1 semana atrás",
+    time: "9 meses atrás",
   },
   {
     name: "Valeria Ribeiro Gomes",
@@ -14,10 +14,10 @@ const testimonials = [
     time: "2 semanas atrás",
   },
   {
-    name: "Helena Rodrigues",
-    text: "Profissional de altíssimo nível! Uma advogada previdenciária e trabalhista extremamente dedicada, que alia competência técnica a um atendimento humano e respeitoso. Sempre atualizada e preparada para defender com excelência os direitos do INSS. Referência na área!",
+    name: "Roberto Vasconcelos Barroso De Sousa",
+    text: "Fui muito bem atendido, ótima profissional tirou todas as minhas duvidas e me explicou de forma bem atenciosa e paciente, com toda certeza indicarei para todos que conheço.",
     rating: 5,
-    time: "6 meses atrás",
+    time: "um ano atrás",
   },
 ];
 
