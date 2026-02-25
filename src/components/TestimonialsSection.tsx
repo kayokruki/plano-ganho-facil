@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-muted/50 rounded-2xl p-6 md:p-8 flex flex-col"
+              className="bg-muted/50 rounded-none border border-border p-6 md:p-8 flex flex-col"
             >
               <div className="flex gap-1 mb-5">
                 {Array.from({ length: t.rating }).map((_, i) => (
