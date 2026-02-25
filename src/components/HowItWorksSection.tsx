@@ -33,8 +33,8 @@ const HowItWorksSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-4xl mx-auto">
           {steps.map((step) => (
             <div key={step.number} className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5">
-                <span className="font-heading text-lg text-accent">{step.number}</span>
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-5">
+                <span className="font-heading text-lg text-primary-foreground">{step.number}</span>
               </div>
               <h3 className="font-heading text-sm md:text-base uppercase tracking-[0.15em] text-primary mb-2">
                 {step.title}
