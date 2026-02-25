@@ -7,7 +7,7 @@ const team = [
     role: "Sócia-fundadora",
     image: mariaImg,
     description:
-      "Expertise em processos contra planos de saúde e vivência real em cirurgias reparadoras. Conhece de perto a jornada do paciente e luta por seus direitos com empatia e firmeza.",
+      "Expertise em processos contra planos de saúde e vivência real como pós bariátrica e atualmente no processo de fazer as cirurgias reparadoras.",
   },
   {
     name: "Heloisa Sampaio",
