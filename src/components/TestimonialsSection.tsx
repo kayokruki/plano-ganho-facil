@@ -36,9 +36,9 @@ const TestimonialsSection = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-card rounded-2xl border border-border p-6 md:p-8 shadow-md hover:shadow-xl transition-shadow flex flex-col"
+              className="bg-muted/50 rounded-2xl p-6 md:p-8 flex flex-col"
             >
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-5">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star
                     key={i}
@@ -46,17 +46,12 @@ const TestimonialsSection = () => {
                   />
                 ))}
               </div>
-              <p className="font-body text-base text-muted-foreground leading-relaxed mb-6 flex-1">
+              <p className="font-body text-[15px] text-foreground leading-relaxed mb-8 flex-1">
                 "{t.text}"
               </p>
-              <div className="border-t border-border pt-4">
-                <p className="font-body text-sm font-semibold text-foreground">
-                  {t.name}
-                </p>
-                <p className="font-body text-xs text-muted-foreground">
-                  {t.time}
-                </p>
-              </div>
+              <p className="font-heading text-base font-semibold text-foreground">
+                {t.name}
+              </p>
             </div>
           ))}
         </div>
