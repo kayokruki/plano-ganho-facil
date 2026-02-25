@@ -17,11 +17,6 @@ const faqs = [
       "Sim, quando há prescrição médica e o medicamento é essencial para o tratamento. Canetas emagrecedoras como Mounjaro e Ozempic são indicadas para obesidade e perda de peso ponderal. Em caso de negativa, podemos obter uma liminar judicial para garantir o fornecimento.",
   },
   {
-    question: "Quanto tempo leva para conseguir uma liminar?",
-    answer:
-      "Em casos urgentes, como negativa de cirurgia ou medicamento essencial, é possível obter uma liminar em poucos dias. Cada caso é analisado individualmente para garantir a melhor estratégia.",
-  },
-  {
     question: "Vocês atendem pacientes de outros estados?",
     answer:
       "Sim! Temos escritório físico em Petrolina/PE, mas atuamos em todo o Brasil de forma online. Nosso atendimento é 100% digital e humanizado.",
