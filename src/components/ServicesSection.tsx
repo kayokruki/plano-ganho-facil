@@ -13,7 +13,7 @@ const services = [
     title: "Medicamentos de Alto Custo",
     subtitle: "FORNECIMENTO PELO PLANO",
     description:
-      "Canetas emagrecedoras como Mounjaro e Ozempic são tratamentos essenciais para perda de peso ponderal. Garantimos seu acesso mesmo após negativa.",
+      "Teve o acesso negado a medicamentos como Mounjaro ou Ozempic? Se há prescrição médica, o plano de saúde deve cobrir o tratamento. Atuamos juridicamente para garantir que você receba a medicação necessária.",
   },
   {
     icon: HeartPulse,
