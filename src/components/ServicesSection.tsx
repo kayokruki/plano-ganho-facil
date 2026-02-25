@@ -38,7 +38,7 @@ const ServicesSection = () => {
           Atuamos em todas as frentes do direito à saúde para garantir que você receba o tratamento que merece.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {services.map((service) => (
             <div
               key={service.title}
