@@ -305,7 +305,7 @@ const NegativaIndex = () => {
               {[
                 { q: "Quanto custa a consulta inicial?", a: "A análise inicial do seu caso é totalmente gratuita. Avaliamos sua situação e apresentamos as opções jurídicas sem nenhum compromisso." },
                 { q: "Vocês atendem em todo o Brasil?", a: "Sim! Temos escritório físico em Petrolina/PE e atendemos online em todo o território nacional." },
-                { q: "Quanto tempo demora o processo?", a: "Nos casos urgentes, conseguimos liminares em poucos dias. O prazo total depende da complexidade do caso e do tribunal." },
+                
                 { q: "O plano de saúde pode negar minha cirurgia?", a: "Na maioria dos casos, a negativa é abusiva e ilegal. A legislação brasileira garante a cobertura de procedimentos prescritos pelo médico assistente." },
                 { q: "Preciso ir ao escritório presencialmente?", a: "Não. Todo o atendimento pode ser feito de forma online, por WhatsApp, videochamada e e-mail." },
                 { q: "Quais documentos preciso para iniciar?", a: "Carteirinha do plano, relatório médico, negativa do plano (se houver por escrito) e documentos pessoais. Orientamos tudo no primeiro contato." },
