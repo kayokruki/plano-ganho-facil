@@ -7,9 +7,19 @@ import {
 
 const faqs = [
   {
-    question: "Meu plano de saúde pode negar a cirurgia reparadora pós-bariátrica?",
+    question: "O plano de saúde pode negar minha cirurgia?",
     answer:
       "Não. A cirurgia reparadora pós-bariátrica é um direito garantido pela ANS quando há indicação médica. O excesso de pele após a perda de peso ponderal pode causar problemas físicos e psicológicos, e o plano é obrigado a cobrir o procedimento.",
+  },
+  {
+    question: "Preciso ir ao escritório presencialmente?",
+    answer:
+      "Não! Nosso atendimento é 100% digital e humanizado. Temos escritório físico em Petrolina/PE, mas atuamos em todo o Brasil de forma online.",
+  },
+  {
+    question: "Quais documentos precisos para iniciar?",
+    answer:
+      "Geralmente precisamos de laudos médicos, carteirinha do plano de saúde, documentos pessoais e comprovantes de negativa do plano. Na primeira análise pelo WhatsApp, nossa equipe orienta exatamente o que será necessário.",
   },
   {
     question: "O plano é obrigado a cobrir cirurgias reparadoras mesmo que a perda de peso tenha sido com Mounjaro e Ozempic e não bariátrica?",
