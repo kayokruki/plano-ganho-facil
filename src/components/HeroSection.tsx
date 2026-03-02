@@ -40,14 +40,17 @@ const HeroSection = () => {
           </div>
 
           {/* Right - Image */}
-          <div className="order-1 md:order-2 flex justify-center animate-fade-in">
+          <div className="order-1 md:order-2 flex justify-center">
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/10 rounded-2xl blur-2xl" />
+              <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/10 rounded-2xl blur-xl" />
               <img
                 src={heroImage}
                 alt="Maria Laura e Heloisa - Sócias da HM Advocacia"
                 className="relative rounded-2xl shadow-2xl w-full max-w-md object-cover"
                 loading="eager"
+                fetchPriority="high"
+                width={448}
+                height={597}
               />
             </div>
           </div>
