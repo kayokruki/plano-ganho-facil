@@ -4,9 +4,9 @@ const services = [
   {
     icon: Scissors,
     title: "Cirurgias Plásticas Reparadoras",
-    subtitle: "Pós-bariátrica",
+    subtitle: "Pós-bariátrica / Pós Mounjaro",
     description:
-      "Seu plano de saúde negou a cirurgia reparadora após a bariátrica? A lei garante cobertura. Lutamos para que você tenha a cirurgia que precisa.",
+      "Seu plano de saúde negou uma cirurgia após uma bariátrica? A lei garante cobertura. E além disso! Caso você tenha perdido uma grande quantidade de peso mesmo com o uso de Mounjaro e similares, o plano também deverá cobrir as suas cirurgias reparadoras. Nós buscamos o seu direito judicialmente.",
   },
   {
     icon: Pill,
