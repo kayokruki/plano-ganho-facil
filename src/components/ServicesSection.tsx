@@ -13,7 +13,7 @@ const services = [
     title: "Medicamentos de Alto Custo",
     subtitle: "FORNECIMENTO PELO PLANO",
     description:
-      "Teve o acesso negado a medicamentos? Se há prescrição médica, o plano de saúde deve cobrir o tratamento. Atuamos juridicamente para garantir que você receba a medicação necessária.",
+      "Você teve acesso negado a medicamentos que são essenciais ao seu tratamento? Se houver prescrição médica, o plano de saúde deve cobrir o tratamento. Atuamos juridicamente para garantir que você receba os medicamentos necessários.",
   },
   {
     icon: HeartPulse,
