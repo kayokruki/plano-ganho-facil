@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -52,8 +52,9 @@ const ContactSection = () => {
             href="https://instagram.com/hmadvogadas_"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body text-sm uppercase tracking-wider text-gold hover:text-gold/80 transition-colors"
+            className="inline-flex items-center gap-2 font-body text-sm uppercase tracking-wider text-gold hover:text-gold/80 transition-colors"
           >
+            <Instagram className="w-4 h-4" />
             Instagram →
           </a>
         </div>
