@@ -24,10 +24,10 @@ const services = [
   },
   {
     icon: Scale,
-    title: "Ação Revisional de Reajuste",
+    title: "Cirurgia ou Tratamento Negado",
     subtitle: "Plano de saúde",
     description:
-      "Combatemos reajustes abusivos que impedem o acesso ao plano de saúde.",
+      "Caso o plano de saúde tenha negado outro tipo de cirurgia ou tratamentos (HOME CARE ou acompanhamento para TEA), nós buscamos o seu direito ao acesso à Saúde.",
   },
 ];
 
