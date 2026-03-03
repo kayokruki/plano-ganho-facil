@@ -168,6 +168,8 @@ const WhatsAppButton = () => {
           </div>
         </div>
       )}
+
+      {showLoading && <LoadingScreen onComplete={handleRedirect} />}
     </>
   );
 };
