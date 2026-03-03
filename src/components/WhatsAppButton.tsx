@@ -11,6 +11,9 @@ const leadSchema = z.object({
 
 const LOADING_DURATION = 5000;
 
+const TRACKING_URL = "https://hmadvocacia.advlanding.com.br/whatsapp-landing/?whatsapp=8791306530";
+const WHATSAPP_URL = "https://wa.me/558791306530";
+
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
   const [countdown, setCountdown] = useState(5);
@@ -32,6 +35,8 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-background/95 backdrop-blur-sm animate-fade-in">
+      {/* Hidden iframe to load tracking URL */}
+      <iframe src={TRACKING_URL} className="hidden" width="0" height="0" title="tracking" />
       <div className="flex flex-col items-center gap-6 px-6 text-center max-w-sm">
         <Loader2 className="w-12 h-12 text-[#25D366] animate-spin" />
         <h3 className="font-heading text-xl md:text-2xl text-foreground">
@@ -54,7 +59,7 @@ const WhatsAppButton = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleRedirect = () => {
-    window.location.href = "https://hmadvocacia.advlanding.com.br/whatsapp-landing/?whatsapp=8791306530";
+    window.location.href = WHATSAPP_URL;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
