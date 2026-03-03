@@ -59,12 +59,12 @@ const AboutSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a
-            href="#contato"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-whatsapp-popup"))}
             className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-body font-semibold text-base rounded-lg hover:bg-primary/90 transition-colors"
           >
             Fale com uma especialista
-          </a>
+          </button>
         </div>
       </div>
     </section>
