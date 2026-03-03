@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { z } from "zod";
+import { Progress } from "@/components/ui/progress";
 
 const leadSchema = z.object({
   nome: z.string().trim().min(1, "Nome é obrigatório").max(100),
@@ -8,11 +9,58 @@ const leadSchema = z.object({
   problema: z.string().trim().min(1, "Descreva brevemente seu problema").max(500),
 });
 
+const LOADING_DURATION = 5000;
+
+const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
+  const [progress, setProgress] = useState(0);
+  const [countdown, setCountdown] = useState(5);
+
+  useEffect(() => {
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / LOADING_DURATION) * 100, 100);
+      setProgress(pct);
+      setCountdown(Math.max(Math.ceil((LOADING_DURATION - elapsed) / 1000), 0));
+      if (elapsed >= LOADING_DURATION) {
+        clearInterval(interval);
+        onComplete();
+      }
+    }, 50);
+    return () => clearInterval(interval);
+  }, [onComplete]);
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-background/95 backdrop-blur-sm animate-fade-in">
+      <div className="flex flex-col items-center gap-6 px-6 text-center max-w-sm">
+        <Loader2 className="w-12 h-12 text-[#25D366] animate-spin" />
+        <h3 className="font-heading text-xl md:text-2xl text-foreground">
+          Preparando seu atendimento...
+        </h3>
+        <p className="font-body text-sm text-muted-foreground">
+          Você será redirecionado para o WhatsApp em {countdown}s
+        </p>
+        <Progress value={progress} className="w-full h-2" />
+      </div>
+    </div>
+  );
+};
+
 const WhatsAppButton = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
   const [form, setForm] = useState({ nome: "", telefone: "", problema: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleRedirect = () => {
+    window.open(
+      "https://hmadvocacia.advlanding.com.br/whatsapp-landing/?whatsapp=8791306530",
+      "_blank"
+    );
+    setShowLoading(false);
+    setForm({ nome: "", telefone: "", problema: "" });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,15 +87,9 @@ const WhatsAppButton = () => {
       // Continue to redirect even if webhook fails
     }
 
-    setTimeout(() => {
-      const msg = encodeURIComponent(
-        `Olá! Meu nome é ${result.data.nome}. Preciso de ajuda com: ${result.data.problema}`
-      );
-      window.open(`https://wa.me/558791306530?text=${msg}`, "_blank");
-      setShowPopup(false);
-      setLoading(false);
-      setForm({ nome: "", telefone: "", problema: "" });
-    }, 800);
+    setLoading(false);
+    setShowPopup(false);
+    setShowLoading(true);
   };
 
   return (
@@ -126,6 +168,8 @@ const WhatsAppButton = () => {
           </div>
         </div>
       )}
+
+      {showLoading && <LoadingScreen onComplete={handleRedirect} />}
     </>
   );
 };
