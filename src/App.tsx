@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NegativaIndex from "./pages/NegativaIndex";
 import NegativaPrivacyPolicy from "./pages/NegativaPrivacyPolicy";
+import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo" element={<Index />} />
           <Route path="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo/politica-de-privacidade" element={<PrivacyPolicy />} />
+          <Route path="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo/obrigado-landing-page" element={<ThankYou />} />
           <Route path="/negativa-plano-saude" element={<NegativaIndex />} />
           <Route path="/negativa-plano-saude/politica-de-privacidade" element={<NegativaPrivacyPolicy />} />
           <Route path="/" element={<Navigate to="/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo" replace />} />
