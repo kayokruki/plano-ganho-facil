@@ -54,12 +54,7 @@ const WhatsAppButton = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleRedirect = () => {
-    window.open(
-      "https://hmadvocacia.advlanding.com.br/whatsapp-landing/?whatsapp=8791306530",
-      "_blank"
-    );
-    setShowLoading(false);
-    setForm({ nome: "", telefone: "", problema: "" });
+    window.location.href = "https://hmadvocacia.advlanding.com.br/whatsapp-landing/?whatsapp=8791306530";
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
