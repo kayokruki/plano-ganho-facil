@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { MessageCircle, X, Send } from "lucide-react";
 import { z } from "zod";
 
@@ -10,7 +9,6 @@ const leadSchema = z.object({
 });
 
 const WhatsAppButton = () => {
-  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ nome: "", telefone: "", problema: "" });
@@ -41,14 +39,15 @@ const WhatsAppButton = () => {
       // Continue to redirect even if webhook fails
     }
 
-    const msg = encodeURIComponent(
-      `Olá! Meu nome é ${result.data.nome}. Preciso de ajuda com: ${result.data.problema}`
-    );
-    window.open(`https://wa.me/558791306530?text=${msg}`, "_blank");
-    setShowPopup(false);
-    setLoading(false);
-    setForm({ nome: "", telefone: "", problema: "" });
-    navigate("/seu-direito-a-cirurgia-reparadora-e-tratamentos-de-alto-custo/obrigado-landing-page");
+    setTimeout(() => {
+      const msg = encodeURIComponent(
+        `Olá! Meu nome é ${result.data.nome}. Preciso de ajuda com: ${result.data.problema}`
+      );
+      window.open(`https://wa.me/558791306530?text=${msg}`, "_blank");
+      setShowPopup(false);
+      setLoading(false);
+      setForm({ nome: "", telefone: "", problema: "" });
+    }, 800);
   };
 
   return (
