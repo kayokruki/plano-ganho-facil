@@ -2,8 +2,7 @@ import heroImage from "@/assets/maria_e_heloisa_hero.jpeg";
 
 const HeroSection = () => {
   const handleCTA = () => {
-    const el = document.getElementById("contato");
-    el?.scrollIntoView({ behavior: "smooth" });
+    window.dispatchEvent(new CustomEvent("open-whatsapp-popup"));
   };
 
   return (

@@ -58,6 +58,12 @@ const WhatsAppButton = () => {
   const [form, setForm] = useState({ nome: "", telefone: "", problema: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  useEffect(() => {
+    const handler = () => setShowPopup(true);
+    window.addEventListener("open-whatsapp-popup", handler);
+    return () => window.removeEventListener("open-whatsapp-popup", handler);
+  }, []);
+
   const handleRedirect = () => {
     window.location.href = WHATSAPP_URL;
   };
