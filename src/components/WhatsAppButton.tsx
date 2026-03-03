@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MessageCircle, X, Send } from "lucide-react";
 import { z } from "zod";
@@ -13,12 +13,6 @@ const WhatsAppButton = () => {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const handler = () => setShowPopup(true);
-    window.addEventListener("open-whatsapp-popup", handler);
-    return () => window.removeEventListener("open-whatsapp-popup", handler);
-  }, []);
   const [form, setForm] = useState({ nome: "", telefone: "", problema: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 

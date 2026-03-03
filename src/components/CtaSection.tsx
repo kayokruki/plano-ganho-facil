@@ -10,13 +10,13 @@ const CtaSection = () => {
         <p className="font-body text-lg text-primary/70 max-w-2xl mx-auto mb-10">
           Cada dia sem ação é um dia a mais sem o tratamento que você merece. Fale conosco agora.
         </p>
-        <button
-          onClick={() => window.dispatchEvent(new Event("open-whatsapp-popup"))}
+        <a
+          href="#contato"
           className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-body font-semibold text-base rounded-none hover:bg-primary/90 transition-colors"
         >
           <MessageCircle className="w-5 h-5" />
           Fale com uma Especialista
-        </button>
+        </a>
       </div>
     </section>
   );
