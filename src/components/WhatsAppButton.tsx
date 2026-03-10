@@ -6,7 +6,6 @@ import { Progress } from "@/components/ui/progress";
 const leadSchema = z.object({
   nome: z.string().trim().min(1, "Nome é obrigatório").max(100),
   telefone: z.string().trim().min(8, "Telefone inválido").max(20),
-  problema: z.string().trim().min(1, "Descreva brevemente seu problema").max(500),
 });
 
 const LOADING_DURATION = 5000;
