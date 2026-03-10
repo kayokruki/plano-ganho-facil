@@ -6,7 +6,6 @@ import { Progress } from "@/components/ui/progress";
 const leadSchema = z.object({
   nome: z.string().trim().min(1, "Nome é obrigatório").max(100),
   telefone: z.string().trim().min(8, "Telefone inválido").max(20),
-  problema: z.string().trim().min(1, "Descreva brevemente seu problema").max(500),
 });
 
 const LOADING_DURATION = 5000;
@@ -55,7 +54,7 @@ const WhatsAppButton = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
-  const [form, setForm] = useState({ nome: "", telefone: "", problema: "" });
+  const [form, setForm] = useState({ nome: "", telefone: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -150,17 +149,6 @@ const WhatsAppButton = () => {
                   maxLength={20}
                 />
                 {errors.telefone && <p className="text-sm text-destructive mt-1">{errors.telefone}</p>}
-              </div>
-              <div>
-                <textarea
-                  placeholder="Descreva brevemente seu problema"
-                  value={form.problema}
-                  onChange={(e) => setForm({ ...form, problema: e.target.value })}
-                  rows={3}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-                  maxLength={500}
-                />
-                {errors.problema && <p className="text-sm text-destructive mt-1">{errors.problema}</p>}
               </div>
               <button
                 type="submit"
