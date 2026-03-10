@@ -54,7 +54,7 @@ const WhatsAppButton = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
-  const [form, setForm] = useState({ nome: "", telefone: "", problema: "" });
+  const [form, setForm] = useState({ nome: "", telefone: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
