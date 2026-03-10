@@ -12,7 +12,7 @@ const leadSchema = z.object({
 const LOADING_DURATION = 5000;
 
 const TRACKING_URL = "https://hmadvocacia.advlanding.com.br/whatsapp-landing/?whatsapp=8791306530";
-const WHATSAPP_URL = "https://wa.me/558791306530";
+const WHATSAPP_URL = "https://wa.me/558791306530?text=" + encodeURIComponent("Olá! Vim da Landing Page e gostaria de falar sobre.");
 
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
