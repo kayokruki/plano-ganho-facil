@@ -83,10 +83,16 @@ const WhatsAppButton = () => {
 
     setLoading(true);
     try {
+      const schema = {
+        name: result.data.nome,
+        phone: result.data.telefone,
+        timestamp: new Date().toISOString(),
+        page_url: window.location.href,
+      };
       await fetch("https://n8n.aceleracaojuridica.com.br/webhook/lead-landing-popup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result.data),
+        body: JSON.stringify(schema),
       });
     } catch {
       // Continue to redirect even if webhook fails
