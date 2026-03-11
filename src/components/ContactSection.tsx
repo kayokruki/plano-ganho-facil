@@ -1,66 +1,174 @@
-import { MapPin, Mail, Phone, Instagram } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import { z } from "zod";
+import { Progress } from "@/components/ui/progress";
 
-const ContactSection = () => {
+const leadSchema = z.object({
+  nome: z.string().trim().min(1, "Nome é obrigatório").max(100),
+  telefone: z.string().trim().min(8, "Telefone inválido").max(20),
+});
+
+const LOADING_DURATION = 5000;
+
+const TRACKING_URL = "https://hmadvocacia.advlanding.com.br/whatsapp-landing/?whatsapp=8791306530";
+const WHATSAPP_URL =
+  "https://wa.me/558791306530?text=" + encodeURIComponent("Olá! Vim da Landing Page e gostaria de falar sobre.");
+
+const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
+  const [progress, setProgress] = useState(0);
+  const [countdown, setCountdown] = useState(5);
+
+  useEffect(() => {
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / LOADING_DURATION) * 100, 100);
+      setProgress(pct);
+      setCountdown(Math.max(Math.ceil((LOADING_DURATION - elapsed) / 1000), 0));
+      if (elapsed >= LOADING_DURATION) {
+        clearInterval(interval);
+        onComplete();
+      }
+    }, 50);
+    return () => clearInterval(interval);
+  }, [onComplete]);
+
   return (
-    <section id="contato" className="py-20 md:py-28 bg-navy text-primary-foreground">
-      <div className="container mx-auto px-4">
-        <p className="font-body text-sm uppercase tracking-[0.2em] text-gold text-center mb-3">
-          Contato
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-background/95 backdrop-blur-sm animate-fade-in">
+      {/* Hidden iframe to load tracking URL */}
+      <iframe src={TRACKING_URL} className="hidden" width="0" height="0" title="tracking" />
+      <div className="flex flex-col items-center gap-6 px-6 text-center max-w-sm">
+        <Loader2 className="w-12 h-12 text-[#25D366] animate-spin" />
+        <h3 className="font-heading text-xl md:text-2xl text-foreground">Preparando seu atendimento...</h3>
+        <p className="font-body text-sm text-muted-foreground">
+          Você será redirecionado para o WhatsApp em {countdown}s
         </p>
-        <h2 className="font-heading text-3xl md:text-[40px] text-center mb-6">
-          Fale conosco
-        </h2>
-        <p className="font-body text-lg text-center opacity-80 max-w-2xl mx-auto mb-12">
-          Entre em contato para uma análise gratuita do seu caso. Estamos prontas para lutar pelo seu direito.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-          <a
-            href="https://wa.me/558791306530"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-center p-6 rounded-xl border border-gold/20 hover:border-gold/50 transition-colors"
-          >
-            <Phone className="w-8 h-8 text-gold mb-3" />
-            <span className="font-body font-semibold mb-1">WhatsApp</span>
-            <span className="font-body text-sm opacity-70">(87) 9130-6530</span>
-          </a>
-
-          <a
-            href="mailto:hmadvocaciacontato@gmail.com"
-            className="flex flex-col items-center text-center p-6 rounded-xl border border-gold/20 hover:border-gold/50 transition-colors"
-          >
-            <Mail className="w-8 h-8 text-gold mb-3" />
-            <span className="font-body font-semibold mb-1">E-mail</span>
-            <span className="font-body text-sm opacity-70">hmadvocaciacontato@gmail.com</span>
-          </a>
-
-          <a
-            href="https://maps.app.goo.gl/VtGv4NstTwEHzLku7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center text-center p-6 rounded-xl border border-gold/20 hover:border-gold/50 transition-colors"
-          >
-            <MapPin className="w-8 h-8 text-gold mb-3" />
-            <span className="font-body font-semibold mb-1">Endereço</span>
-            <span className="font-body text-sm opacity-70">Av. São Francisco, 181, Areia Branca, Petrolina/PE</span>
-          </a>
-        </div>
-
-        <div className="flex justify-center gap-6">
-          <a
-            href="https://instagram.com/hmadvogadas_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-body text-sm uppercase tracking-wider text-gold hover:text-gold/80 transition-colors"
-          >
-            <Instagram className="w-4 h-4" />
-            Instagram →
-          </a>
-        </div>
+        <Progress value={progress} className="w-full h-2" />
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ContactSection;
+const WhatsAppButton = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
+  const [form, setForm] = useState({ nome: "", telefone: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const handler = () => setShowPopup(true);
+    window.addEventListener("open-whatsapp-popup", handler);
+    return () => window.removeEventListener("open-whatsapp-popup", handler);
+  }, []);
+
+  const handleRedirect = () => {
+    window.location.href = WHATSAPP_URL;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({});
+
+    const result = leadSchema.safeParse(form);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) fieldErrors[err.path[0] as string] = err.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const data = {
+        name: result.data.nome,
+        phone: result.data.telefone,
+        timestamp: new Date().toISOString(),
+        page_url: window.location.href,
+      };
+      await fetch("https://n8n.aceleracaojuridica.com.br/webhook/lead-landing-popup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch {
+      // Continue to redirect even if webhook fails
+    }
+
+    setLoading(false);
+    setShowPopup(false);
+    setShowLoading(true);
+  };
+
+  return (
+    <>
+      {/* Floating button */}
+      <button
+        onClick={() => setShowPopup(true)}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] text-card flex items-center justify-center shadow-xl hover:scale-110 transition-transform"
+        aria-label="Abrir WhatsApp"
+      >
+        <MessageCircle className="w-7 h-7 md:w-8 md:h-8" />
+      </button>
+
+      {/* Popup overlay */}
+      {showPopup && (
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-foreground/50 backdrop-blur-sm animate-fade-in">
+          <div className="bg-card rounded-2xl shadow-2xl w-full max-w-md p-6 md:p-8 relative animate-fade-in-up">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+              aria-label="Fechar"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <h3 className="font-heading text-xl md:text-2xl text-foreground mb-2">Fale com uma especialista</h3>
+            <p className="font-body text-sm text-muted-foreground mb-6">
+              Preencha seus dados e vamos te atender pelo WhatsApp.
+            </p>
+
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Seu nome"
+                  value={form.nome}
+                  onChange={(e) => setForm({ ...form, nome: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  maxLength={100}
+                />
+                {errors.nome && <p className="text-sm text-destructive mt-1">{errors.nome}</p>}
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Seu telefone"
+                  value={form.telefone}
+                  onChange={(e) => setForm({ ...form, telefone: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  maxLength={20}
+                />
+                {errors.telefone && <p className="text-sm text-destructive mt-1">{errors.telefone}</p>}
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#25D366] text-card font-body font-semibold text-base hover:bg-[#20bd5a] transition-colors disabled:opacity-60"
+              >
+                <Send className="w-4 h-4" />
+                {loading ? "Enviando..." : "Enviar e ir para WhatsApp"}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showLoading && <LoadingScreen onComplete={handleRedirect} />}
+    </>
+  );
+};
+
+export default WhatsAppButton;
